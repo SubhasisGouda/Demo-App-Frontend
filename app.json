@@ -37,6 +37,19 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "720788aa-e36e-4f99-9667-ee0f218b674e"
+      }
+    },
+    "owner": "chinmaya077",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/720788aa-e36e-4f99-9667-ee0f218b674e"
     }
   }
 }
