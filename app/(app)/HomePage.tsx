@@ -1,28 +1,30 @@
+import AntDesign from '@expo/vector-icons/AntDesign';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import React, { useState } from 'react';
 import {
-  View,
+  SafeAreaView,
+  StyleSheet,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  SafeAreaView,
+  View,
 } from 'react-native';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
  // You can use any icon library
 // Import your list components
 import AccountList from './AccountList';
 import ContactList from './ContactList';
+import Profile from './Profile';
 
 // Placeholder components - replace with your actual components
 
 
-type TabType = 'accounts' | 'contacts';
+type TabType = 'accounts' | 'contacts'| 'profile';
 
 const Homepage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('accounts');
 
   const renderContent = () => {
-    return activeTab === 'accounts' ? <AccountList /> : <ContactList />;
+    return activeTab === 'accounts' ? <AccountList /> : (activeTab=='contacts')? <ContactList />:<Profile/>;
   };
 
   return (
@@ -73,6 +75,23 @@ const Homepage: React.FC = () => {
             ]}
           >
             Contacts
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.tabButton,
+            activeTab === 'profile' && styles.activeTabButton,
+          ]}
+          onPress={() => setActiveTab('profile')}
+        >
+        <MaterialCommunityIcons name="face-man" size={24}  color={activeTab === 'profile' ? '#007AFF' : '#666'} />
+          <Text
+            style={[
+              styles.tabText,
+              activeTab === 'profile' && styles.activeTabText,
+            ]}
+          >
+            Profile
           </Text>
         </TouchableOpacity>
       </View>
