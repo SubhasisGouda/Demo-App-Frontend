@@ -8,7 +8,6 @@ import {
   ActivityIndicator,
   Image,
   ScrollView,
-  StatusBar,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
@@ -50,22 +49,25 @@ export default function Profile() {
   }
 
   return (
-    <>
-      <StatusBar barStyle="light-content" backgroundColor="#4f46e5" />
-      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-        {/* Header with gradient background */}
-        <LinearGradient
-          colors={['#667eea', '#764ba2']}
-          style={styles.header}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-        >
-          <View style={styles.headerContent}>
-            <Text style={styles.headerTitle}>Profile</Text>
-            <Ionicons name="settings-outline" size={24} color="white" />
-          </View>
-        </LinearGradient>
+    <View style={styles.container}>
+      {/* Header with gradient background */}
+      <LinearGradient
+        colors={['#667eea', '#764ba2']}
+        style={styles.header}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <View style={styles.headerContent}>
+          <Text style={styles.headerTitle}>Profile</Text>
+          <Ionicons name="settings-outline" size={24} color="white" />
+        </View>
+      </LinearGradient>
 
+      <ScrollView 
+        style={styles.scrollContainer}
+        contentContainerStyle={styles.scrollContentContainer}
+        showsVerticalScrollIndicator={false}
+      >
         {userName ? (
           <View style={styles.profileContent}>
             {/* Profile Picture Section */}
@@ -86,7 +88,6 @@ export default function Profile() {
             {/* User Info */}
             <View style={styles.userInfo}>
               <Text style={styles.userName}>{userName}</Text>
-         
             </View>
 
             {/* Stats Cards */}
@@ -186,7 +187,7 @@ export default function Profile() {
           </View>
         )}
       </ScrollView>
-    </>
+    </View>
   );
 }
 
@@ -194,6 +195,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8fafc',
+  },
+  scrollContainer: {
+    flex: 1,
+  },
+  scrollContentContainer: {
+    paddingBottom: 80, // Add padding to account for the tab bar
   },
   loadingContainer: {
     flex: 1,
@@ -207,7 +214,7 @@ const styles = StyleSheet.create({
     color: '#6b7280',
   },
   header: {
-    paddingTop: 50,
+    paddingTop: 20,
     paddingBottom: 20,
     paddingHorizontal: 20,
   },
@@ -224,6 +231,8 @@ const styles = StyleSheet.create({
   profileContent: {
     flex: 1,
     paddingHorizontal: 20,
+    paddingBottom: 20,
+    marginTop:50
   },
   profilePictureContainer: {
     alignItems: 'center',

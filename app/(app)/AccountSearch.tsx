@@ -89,7 +89,7 @@ const AccountSearch: React.FC<AccountSearchProps> = ({ onAccountSelect }) => {
 
     return (
       <View style={styles.emptyState}>
-        <AntDesign name="info" size={48} color="#ccc" />
+   
         <Text style={styles.emptyText}>No accounts found for "{searchQuery}"</Text>
       </View>
     );
@@ -181,17 +181,20 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   resultsContainer: {
-    flex: 1,
+    
+    flexGrow: 1, // change this
+    minHeight: 100,
   },
   errorContainer: {
     backgroundColor: '#ffebee',
     marginHorizontal: 16,
-    marginBottom: 8,
+   
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 6,
     borderLeftWidth: 4,
     borderLeftColor: '#f44336',
+    minHeight: 100,
   },
   errorText: {
     color: '#c62828',

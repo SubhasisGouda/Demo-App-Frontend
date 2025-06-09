@@ -24,7 +24,9 @@ const Homepage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('accounts');
 
   const renderContent = () => {
-    return activeTab === 'accounts' ? <AccountList /> : (activeTab=='contacts')? <ContactList />:<Profile/>;
+    return activeTab === 'accounts' ? <AccountList /> : (activeTab=='contacts')? <ContactList />: 
+    <Profile />
+  ;
   };
 
   return (
