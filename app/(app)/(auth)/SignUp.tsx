@@ -72,7 +72,7 @@ export default function Signup() {
       await AsyncStorage.setItem('userEmail', email);
 
       console.log('Signup success:', data);
-      router.replace('/(app)/Profile');
+      router.replace('/(app)/HomePage');
     } catch (error) {
       console.error('Signup error:', error);
       Alert.alert('Signup Failed' || 'Please try again');
