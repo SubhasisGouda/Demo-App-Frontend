@@ -53,7 +53,7 @@ export default function Login() {
       await AsyncStorage.setItem('userEmail', email);
 
       console.log('Login success:', data);
-      router.replace('/(app)/Profile');
+      router.replace('/(app)/HomePage');
     } catch (error) {
       console.error('Login error:', error);
       Alert.alert('Login Failed'|| 'Please try again');
